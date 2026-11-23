@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "secposture"
+version = "0.1.0"
+description = "Lifecycle cost comparison of physical security postures, with uncertainty analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Kannika Armstrong"}]
+dependencies = ["numpy>=1.26", "matplotlib>=3.8", "openpyxl>=3.1", "PyQt6>=6.6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+secposture = "secposture.cli:main"
+
+[project.gui-scripts]
+secposture-gui = "secposture.gui:main"
+
+[tool.setuptools]
+packages = ["secposture"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
